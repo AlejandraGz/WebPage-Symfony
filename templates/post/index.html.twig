@@ -1,29 +1,46 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello PostController!{% endblock %}
+{% block title %}{{parent()}} - Inicio{% endblock %}
 
 {% block body %}
 {{parent()}}
 <div class="example-wrapper d-flex justify-content-center">
-    {# {{ form(form) }}
-    {{ dump(posts)}}
+    {# {{ dump(posts)}}
     {% for post in posts%}
     {{ dump(post) }}
     {% endfor %} #}
     <div class="container d-flex justify-content-evenly">
         <section class="d-flex flex-column align-items-center container-posts py-5 my-3">
+            {# {{ form(form) }} #}
             {% for post in posts%}
-            <div class="d-flex flex-column align-items-start post">
-                <h2>{{post.title}}</h2>
-                <p>Fecha de publicación: {{post.creation_date | date()}}</p>
-                <p>{{post.type}}</p>
-                <p>{{post.description}}</p>
+            <div class="post d-flex">
+                <div class="d-flex flex-column align-items-start">
+                    <h2>{{post.title}}</h2>
+                    <p>Fecha de publicación: {{post.creation_date | date()}}</p>
+                    <p>{{post.type}}</p>
+                    <p>{{post.description}}</p>
+                </div>
+
+                <div class="file ml-auto ">
+                    {% if post.file != null %}
+                    <img src="{{asset('uploads/files/' ~ post.file)}}" alt="" width="100%">
+                    {% endif %}
+                </div>
             </div>
             {% endfor %}
         </section>
-        <section class="section-aside p-5 m-3 ml-auto ">
-            <aside>
-                <h6>Aprendiendo a usar Symfony y programar en php</h6>
+        <section class="section-aside m-3 ml-auto d-flex justify-content-center align-items-center">
+            <aside class="p-5 ">
+                <h5>Aprendiendo a usar Symfony v6 y programar en php</h5>
+                <p>¿Qué he aprendido?</p>
+                <ul>
+                    <li>Uso de librerias de Symfony</li>
+                    <li>Manejo de bases de datos</li>
+                    <li>Encriptación de contraseñas</li>
+                    <li>Subir archivos</li>
+                    <li>Creación de formularios</li>
+                    <li>Enrutamiento de páginas</li>
+                </ul>
             </aside>
         </section>
     </div>

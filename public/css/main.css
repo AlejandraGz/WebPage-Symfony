@@ -37,7 +37,7 @@ body {
     background-color: white;
     box-shadow: 4px 4px 7px 0px rgba(0,0,0,0.1);
     width: 95%;
-    padding: 50px;
+    padding: 20px;
     margin: 10px;
     border: 1px solid #e2e2e2ad;
 }
@@ -50,4 +50,14 @@ body {
     width: 32%;
     background-color: white;
     border: 1px solid #e2e2e2ad;
+}
+aside {
+    width: 98%;
+    height: 99%;
+    background-color: #d1ecf1;
+    border: 1px solid #7daedb85;
+    border-radius: 5px;
+}
+.file {
+    width: 30%;
 }
