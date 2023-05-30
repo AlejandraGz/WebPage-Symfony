@@ -11,7 +11,39 @@
     {% endfor %} #}
     <div class="container d-flex justify-content-evenly">
         <section class="d-flex flex-column align-items-center container-posts py-5 my-3">
-            {# {{ form(form) }} #}
+            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                Publicar nuevo post
+              </button>
+            {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+            <div class="collapse collapse-div" id="collapseExample">
+                {{ form_start(form) }}
+                <div class="row p-2">
+                    <div class="col-md-6 my-2">
+                        {{ form_widget(form.title, {attr:{'placeholder':'Titulo', 'class':'form-control'}}) }}
+                    </div>
+                    <div class="col-md-6 my-2">
+                        {{ form_widget(form.type, {attr:{'class':'form-control'}}) }}
+                    </div>
+                    <div class="col-md-12 my-2">
+                        {{ form_widget(form.description, {attr:{'class':'form-control', 'placeholder': '¿Qué quieres contar?'}}) }}
+                    </div>
+                    <div class="col-md-12 text-center">
+                        {{ form_widget(form.file, {attr:{'class':'form-control my-2'}}) }}
+                        {# {{ form_widget(form.Guardar, {attr:{'class':'my-2 btn btn-success', 'value':'Guardar'}}) }}#}
+                    </div>
+
+                </div>
+                {{ form_end(form) }}
+            </div>
+            {% else %}
+            <div class="collapse" id="collapseExample">
+                <div class="alert alert-dark my-4 border m-3">
+                    Si deseas publicar, por favor <a href="#">Registrate</a> o
+                    <a href="#">inicia sesión</a>
+                </div>
+            </div>
+            {% endif %}
+
             {% for post in posts%}
             <div class="post d-flex">
                 <div class="d-flex flex-column align-items-start">

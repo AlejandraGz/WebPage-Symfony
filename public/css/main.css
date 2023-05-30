@@ -41,6 +41,11 @@ body {
     margin: 10px;
     border: 1px solid #e2e2e2ad;
 }
+.collapse-div {
+    width: 95%;
+    padding: 20px;
+    margin: 10px;
+}
 .container-posts {
     width: 62%;
     background-color: white;
