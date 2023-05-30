@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PostController!{% endblock %}
+
+{% block body %}
+{{parent()}}
+<div class="example-wrapper d-flex justify-content-center">
+    {# {{ form(form) }}
+    {{ dump(posts)}}
+    {% for post in posts%}
+    {{ dump(post) }}
+    {% endfor %} #}
+    <div class="container d-flex justify-content-evenly">
+        <section class="d-flex flex-column align-items-center container-posts py-5 my-3">
+            {% for post in posts%}
+            <div class="d-flex flex-column align-items-start post">
+                <h2>{{post.title}}</h2>
+                <p>Fecha de publicación: {{post.creation_date | date()}}</p>
+                <p>{{post.type}}</p>
+                <p>{{post.description}}</p>
+            </div>
+            {% endfor %}
+        </section>
+        <section class="section-aside p-5 m-3 ml-auto ">
+            <aside>
+                <h6>Aprendiendo a usar Symfony y programar en php</h6>
+            </aside>
+        </section>
+    </div>
+
+</div>
+{% endblock %}
