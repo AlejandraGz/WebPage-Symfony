@@ -1,0 +1,5 @@
+label_previous: "Previo"
+label_next: "Siguiente"
+
+framework:
+    default_locale: es

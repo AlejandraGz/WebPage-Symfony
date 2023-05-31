@@ -11,9 +11,10 @@
     {% endfor %} #}
     <div class="container d-flex justify-content-evenly">
         <section class="d-flex flex-column align-items-center container-posts py-5 my-3">
-            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
+                aria-expanded="false" aria-controls="collapseExample">
                 Publicar nuevo post
-              </button>
+            </button>
             {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
             <div class="collapse collapse-div" id="collapseExample">
                 {{ form_start(form) }}
@@ -25,7 +26,8 @@
                         {{ form_widget(form.type, {attr:{'class':'form-control'}}) }}
                     </div>
                     <div class="col-md-12 my-2">
-                        {{ form_widget(form.description, {attr:{'class':'form-control', 'placeholder': '¿Qué quieres contar?'}}) }}
+                        {{ form_widget(form.description, {attr:{'class':'form-control', 'placeholder': '¿Qué quieres
+                        contar?'}}) }}
                     </div>
                     <div class="col-md-12 text-center">
                         {{ form_widget(form.file, {attr:{'class':'form-control my-2'}}) }}
@@ -38,8 +40,8 @@
             {% else %}
             <div class="collapse" id="collapseExample">
                 <div class="alert alert-dark my-4 border m-3">
-                    Si deseas publicar, por favor <a href="#">Registrate</a> o
-                    <a href="#">inicia sesión</a>
+                    Si deseas publicar, por favor <a href="{{path('userRegistration')}}">Registrate</a> o
+                    <a href="{{path('app_login')}}">inicia sesión</a>
                 </div>
             </div>
             {% endif %}
@@ -60,6 +62,9 @@
                 </div>
             </div>
             {% endfor %}
+            <div class="navigation">
+                {{ knp_pagination_render(posts) }}
+            </div>
         </section>
         <section class="section-aside m-3 ml-auto d-flex justify-content-center align-items-center">
             <aside class="p-5 ">
